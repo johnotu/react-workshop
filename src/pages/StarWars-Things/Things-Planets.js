@@ -2,30 +2,30 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
-export default function ThingsStarships() {
-  const [starships, setStarships] = useState([]);
+export default function ThingsPlanets() {
+  const [planets, setPlanets] = useState([]);
   
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getStarships = async () => {
+    const getPlanets = async () => {
       setIsLoading(true);
 
-      const response = await fetch("https://swapi.dev/api/starships");
+      const response = await fetch("https://swapi.dev/api/planets");
       const responseJson = await response.json();
 
-      setStarships(responseJson.results);
+      setPlanets(responseJson.results);
       setIsLoading(false)
 
     };
 
-    getStarships();
+    getPlanets();
   }, []);
 
   return (
     <div className="container">
-    <h3 className="">Starships</h3>
-    <p className="lead">A list of Starships</p>
+    <h3 className="">Planets</h3>
+    <p className="lead">A list of Planets</p>
     <hr />
     <div>
       <table class="table">
@@ -33,22 +33,22 @@ export default function ThingsStarships() {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Model</th>
-            <th scope="col">Manufacturer</th>
-            <th scope="col">Passengers</th>
+            <th scope="col">Climate</th>
+            <th scope="col">Terrain</th>
+            <th scope="col">Population</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          {starships.map((ship, index) => (
+          {planets.map((planet, index) => (
             <tr>
               <th scope="row">{index + 1}</th>
-              <td>{ship.name}</td>
-              <td>{ship.model}</td>
-              <td>{ship.manufacturer}</td>
-              <td>{ship.passengers}</td>
+              <td>{planet.name}</td>
+              <td>{planet.climate}</td>
+              <td>{planet.terrain}</td>
+              <td>{planet.population}</td>
               <td>
-                <Link to={`/things/starships/${index + 1}`}>Details</Link>
+                <Link to={`/things/planets/${index + 1}`}>Details</Link>
               </td>
             </tr>
           ))}
