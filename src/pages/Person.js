@@ -8,10 +8,8 @@ export default function Person() {
   const { id } = useParams();
 
   const [person, setPerson] = useState({});
-  const [searchParams, setSearchParams] = useSearchParams();
-  const searchId = searchParams.get('id')
-  console.log(searchId);
-  // console.log(searchParams);
+  let [searchParams] = useSearchParams();
+  console.log(searchParams);
 
 
   useEffect(() => {
@@ -21,7 +19,7 @@ export default function Person() {
       
       // const urlParams = new URLSearchParams.get(id)
       // console.log(urlParams);
-
+  
       setPerson(responseJson);
     };
 
