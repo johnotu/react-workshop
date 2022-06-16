@@ -8,7 +8,6 @@ export default function People() {
     const getPeople = async () => {
       const response = await fetch("https://swapi.dev/api/people");
       const responseJson = await response.json();
-
       setPeople(responseJson.results);
     };
 
@@ -39,7 +38,7 @@ export default function People() {
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/people/${index + 1}`}>Details</Link>
+                  <Link to={`/person?=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}
