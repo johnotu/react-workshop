@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function People() {
   const [people, setPeople] = useState([]);
-
   useEffect(() => {
     const getPeople = async () => {
       const response = await fetch("https://swapi.dev/api/people");
@@ -13,10 +12,13 @@ export default function People() {
     };
 
     getPeople();
+
   }, []);
+  
 
   return (
     <div className="container">
+            {/* {isLoading ? <Loader /> : renderUser} */}
       <h3 className="display-3">People</h3>
       <p className="lead">A list of Starwars people</p>
       <hr />
