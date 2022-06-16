@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useSearchParams } from "react-router-dom"
 import LoadingData from '../components/LoadingData'
 
 export default function Person() {
   const { id } = useParams();
 
   const [person, setPerson] = useState({});
-  let [searchParams] = useSearchParams();
-  const searchId = searchParams.get('id')
+  
 
   useEffect(() => {
     const getPerson = async () => {
@@ -27,7 +25,7 @@ export default function Person() {
         <h3 className="display-3">Person</h3>
         <p className="lead">Details of a Star wars person</p>
         <hr />
-        {searchId}
+     
         <h4>{person.name}</h4>
         <p>Height: {person.height}</p>
         <p>Hair color: {person.hair_color}</p>

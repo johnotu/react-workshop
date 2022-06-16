@@ -1,8 +1,11 @@
 import { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom"
 
 export default function People() {
   const [people, setPeople] = useState([]);
+  let [searchParams] = useSearchParams();
+  const searchId = searchParams.get('id')
 
   useEffect(() => {
     const getPeople = async () => {
@@ -21,6 +24,7 @@ export default function People() {
       <p className="lead">A list of Starwars people</p>
       <hr />
       <div>
+           {searchId}
         <table class="table">
           <thead>
             <tr>
