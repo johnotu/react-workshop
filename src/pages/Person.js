@@ -8,8 +8,10 @@ export default function Person() {
   const { id } = useParams();
 
   const [person, setPerson] = useState({});
-  let [searchParams] = useSearchParams();
-  console.log(searchParams);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchId = searchParams.get('id')
+  console.log(searchId);
+  // console.log(searchParams);
 
 
   useEffect(() => {
