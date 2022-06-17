@@ -38,7 +38,7 @@ export default function People() {
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/person?=${index + 1}`}>Details</Link>
+                  <Link to={`/person?id=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}
