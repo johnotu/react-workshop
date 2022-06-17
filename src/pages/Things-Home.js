@@ -5,10 +5,10 @@ export default function ThingsHome() {
     <div>
       <div className="list-group">
         <Link
-          to="/things/starships"
+          to="/things/starShips"
           className="list-group-item list-group-item-action"
         >
-          Starships
+          StarShips
         </Link>
         <Link
           to="/things/vehicles"

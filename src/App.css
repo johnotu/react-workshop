@@ -1,0 +1,90 @@
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #fffcfc; /* Light grey */
+    border-top: 10px solid #383636; /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+  .spinner-container {
+    position: absolute;
+    left: 40rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+  }
+  @keyframes ldio-qr5kpj57p7 {
+    0% { transform: rotate(0) }
+    100% { transform: rotate(360deg) }
+  }
+  .ldio-qr5kpj57p7 div { box-sizing: border-box!important }
+  .ldio-qr5kpj57p7 > div {
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    top: 28px;
+    left: 28px;
+    border-radius: 50%;
+    border: 16px solid #000;
+    border-color: #383738 transparent #383738 transparent;
+    animation: ldio-qr5kpj57p7 1s linear infinite;
+  }
+  .ldio-qr5kpj57p7 > div:nth-child(2) { border-color: transparent }
+  .ldio-qr5kpj57p7 > div:nth-child(2) div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+  }
+  .ldio-qr5kpj57p7 > div:nth-child(2) div:before, .ldio-qr5kpj57p7 > div:nth-child(2) div:after { 
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -16px;
+    left: 48px;
+    background: #383738;
+    border-radius: 50%;
+    box-shadow: 0 128px 0 0 #383738;
+  }
+  .ldio-qr5kpj57p7 > div:nth-child(2) div:after { 
+    left: -16px;
+    top: 48px;
+    box-shadow: 128px 0 0 0 #383738;
+  }
+  .loadingio-spinner-dual-ring-b2oh4bhkbjn {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: #ffffff;
+  }
+  .ldio-qr5kpj57p7 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldio-qr5kpj57p7 div { box-sizing: content-box; }
+  .people-table a {
+      text-decoration: none;
+      color: grey;
+  }
+.people-table a:hover {
+    color: black;
+}
+a {
+  text-decoration: none;
+}
