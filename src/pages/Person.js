@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import LoadingData from '../components/LoadingData'
+import { useLocation } from "react-router-dom";
+import LoadingData from '../components/LoadingData';
 
 export default function Person() {
-  const { id } = useParams();
-
+  const {search} = useLocation();
+  const id  = parseInt(search.split('=')[1],10)
+  
   const [person, setPerson] = useState({});
   
 

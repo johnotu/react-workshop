@@ -1,11 +1,8 @@
 import { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { useSearchParams } from "react-router-dom"
 
 export default function People() {
   const [people, setPeople] = useState([]);
-  let [searchParams] = useSearchParams();
-  const searchId = searchParams.get('id')
 
   useEffect(() => {
     const getPeople = async () => {
@@ -24,7 +21,6 @@ export default function People() {
       <p className="lead">A list of Starwars people</p>
       <hr />
       <div>
-           {searchId}
         <table class="table">
           <thead>
             <tr>
@@ -43,7 +39,7 @@ export default function People() {
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/people/${index + 1}`}>Details</Link>
+                  <Link to={`/person?id=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}

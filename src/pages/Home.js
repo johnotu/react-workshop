@@ -11,6 +11,11 @@ export default function Home() {
         </Link>
       </div>
       <hr />
+       <div className="">
+        <Link to="/things" className="display-4">
+          StarWars People
+        </Link>
+      </div>
     </div>
   );
 }
