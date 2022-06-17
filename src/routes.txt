@@ -1,0 +1,17 @@
+
+
+/people
+/people/:id
+
+/things
+/things/spaceships
+/things/spaceships/:id
+
+/things/planets
+/things/planets/:id
+
+/things/vehicles
+/things/vehicles/:id
+
+/things/species
+/things/species/:id

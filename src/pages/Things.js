@@ -1,11 +1,12 @@
-import React from 'react'
+import { Outlet } from "react-router-dom";
 
-function Things() {
+export default function Things() {
   return (
-    <div>
-      
+    <div className="container">
+      <h3 className="display-3">Things</h3>
+      <p className="lead">Find every star wars thing</p>
+      <hr />
+      <Outlet />
     </div>
-  )
+  );
 }
-
-export default Things
