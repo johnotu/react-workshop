@@ -1,0 +1,28 @@
+@keyframes MySpinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+
+  }
+
+  .mySpinner {
+   position: absolute;
+   top: 20rem;
+   left: 0;
+   right: 0;
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border-radius: 50%;
+    border: 7px solid #f3f3f3; 
+    border-top: 7px solid #1abee7; 
+    animation: MySpinner 1.5s linear infinite;
+  }
+  
+ 

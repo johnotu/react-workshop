@@ -1,17 +1,26 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom"
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function Person() {
-  const { id } = useParams();
+  // const { id } = useParams();
+  
+  const { search } = useLocation();
+  const id  = parseInt(search.split("=") [1], 10);
+  const [isPerson, setIsPerson] = useState({});
 
-  const [person, setPerson] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getPerson = async () => {
+      setIsLoading(true);
+      
       const response = await fetch(`https://swapi.dev/api/people/${id}`);
       const responseJson = await response.json();
 
-      setPerson(responseJson);
+      setIsPerson(responseJson);
+      setIsLoading(false)
     };
 
     getPerson();
@@ -22,9 +31,12 @@ export default function Person() {
       <h3 className="display-3">Person</h3>
       <p className="lead">Details of a Star wars person</p>
       <hr />
-      <h4>{person.name}</h4>
-      <p>Height: {person.height}</p>
-      <p>Hair color: {person.hair_color}</p>
+
+      {isLoading ? <LoadingSpinner /> : useEffect}
+
+      <h4>{isPerson.name}</h4>
+      <p>Height: {isPerson.height}</p>
+      <p>Hair color: {isPerson.hair_color}</p>
     </div>
   );
 }
