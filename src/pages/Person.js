@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import LoadingData from '../components/LoadingData'
 
 export default function Person() {
   const { id } = useParams();
 
   const [person, setPerson] = useState({});
+  
 
   useEffect(() => {
     const getPerson = async () => {
@@ -16,15 +18,25 @@ export default function Person() {
 
     getPerson();
   }, [id]);
+  const item = person.name
+  if (item) {
+    return (
+      <div className="container">
+        <h3 className="display-3">Person</h3>
+        <p className="lead">Details of a Star wars person</p>
+        <hr />
+     
+        <h4>{person.name}</h4>
+        <p>Height: {person.height}</p>
+        <p>Hair color: {person.hair_color}</p>
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <LoadingData />
+      </div>
+    )
+  }
 
-  return (
-    <div className="container">
-      <h3 className="display-3">Person</h3>
-      <p className="lead">Details of a Star wars person</p>
-      <hr />
-      <h4>{person.name}</h4>
-      <p>Height: {person.height}</p>
-      <p>Hair color: {person.hair_color}</p>
-    </div>
-  );
 }
