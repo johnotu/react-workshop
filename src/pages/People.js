@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function People() {
   const [people, setPeople] = useState([]);
+  
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getPeople = async () => {
+      setIsLoading(true);
       const response = await fetch("https://swapi.dev/api/people");
       const responseJson = await response.json();
 
       setPeople(responseJson.results);
+      setIsLoading(false)
+
     };
 
     getPeople();
@@ -39,10 +45,13 @@ export default function People() {
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/people/${index + 1}`}>Details</Link>
+                  <Link to={`/person?id=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}
+            
+            {isLoading ? <LoadingSpinner /> : useEffect}
+
           </tbody>
         </table>
       </div>
