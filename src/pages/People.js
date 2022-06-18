@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 export default function People() {
   const [people, setPeople] = useState([]);
-
   useEffect(() => {
     const getPeople = async () => {
       const response = await fetch("https://swapi.dev/api/people");
       const responseJson = await response.json();
-
       setPeople(responseJson.results);
     };
 
     getPeople();
+
   }, []);
+  
 
   return (
     <div className="container">
@@ -39,7 +39,7 @@ export default function People() {
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/people/${index + 1}`}>Details</Link>
+                  <Link to={`/person?id=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}
