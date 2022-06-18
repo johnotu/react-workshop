@@ -17,10 +17,7 @@ export default function Home() {
           StarWars Things
         </Link>
       </div>
-      {/* <div className="mt-3">
-        <h3 className="display-4">Sample form</h3>
-        <Form />
-      </div> */}
+
     </div>
   );
 }
