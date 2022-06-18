@@ -1,26 +1,27 @@
+
 import {useState, useEffect} from 'react'
 import {Link} from "react-router-dom";
 import LoadingData from '../components/LoadingData';
 
-export default function ThingsStarships() {
-    const [starShips,setStarShips] = useState([]);
+export default function ThingsPlanets() {
+    const [planets,setPlanets] = useState([]);
 
     useEffect(() => {
-      const getStarShips = async() =>{ 
-        const res = await fetch('https://swapi.dev/api/starships')
+      const getPlanets = async() =>{ 
+        const res = await fetch('https://swapi.dev/api/planets')
         const data = await res.json()
         console.log(data)
-        setStarShips(data.results)
+        setPlanets(data.results)
       }
-      getStarShips()
+      getPlanets()
     })
 
-    console.log(starShips)
-    if(starShips.length){
+    console.log(planets)
+    if(planets.length){ 
   return (
        <div className="container">
-      <h3 className="display-3">Starships</h3>
-      <p className="lead">A list of Starships</p>
+      <h3 className="display-3">Planets</h3>
+      <p className="lead">A list of Planets</p>
       <hr />
       <div>
         <table class="table">
@@ -28,21 +29,22 @@ export default function ThingsStarships() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Model</th>
-              <th scope="col">Manufacturer</th>
-              {/* <th scope="col"></th> */}
+              <th scope="col">Diameter</th>
+              <th scope="col">Climate</th>
+              <th scope="col">Gravity</th>
             </tr>
           </thead>
           <tbody>
-          
-              {starShips.map((starship,index) =>(
+             
+              {planets.map((planet,index) =>(
                 <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{starship.name}</td>
-                <td>{starship.model}</td>
-                <td>{starship.manufacturer}</td>
+                <td>{planet.name}</td>
+                <td>{planet.diameter}</td>
+                <td>{planet.climate}</td>
+                <td>{planet.gravity}</td>
                 <td> 
-                  <Link to={`/things/starships/${index + 2}`}>Details</Link>
+                  <Link to={`/things/planets/${index + 1}`}>Details</Link>
                 </td>
                 </tr>
               ) )}
@@ -52,7 +54,7 @@ export default function ThingsStarships() {
           </table>
           </div>
     </div>
-  )
+  );
               }else{ 
                  return <LoadingData />
               }

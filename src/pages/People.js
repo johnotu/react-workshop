@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 
 export default function People() {
@@ -8,7 +8,7 @@ export default function People() {
     const getPeople = async () => {
       const response = await fetch("https://swapi.dev/api/people");
       const responseJson = await response.json();
-
+     console.log(responseJson)
       setPeople(responseJson.results);
     };
 
@@ -33,13 +33,13 @@ export default function People() {
           </thead>
           <tbody>
             {people.map((person, index) => (
-              <tr>
+              <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>{person.name}</td>
                 <td>{person.height}</td>
                 <td>{person.hair_color}</td>
                 <td>
-                  <Link to={`/people/${index + 1}`}>Details</Link>
+                  <Link to={`/person?id=${index + 1}`}>Details</Link>
                 </td>
               </tr>
             ))}
